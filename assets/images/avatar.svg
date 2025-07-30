@@ -1,0 +1,98 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="faceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="200" cy="200" r="190" fill="url(#avatarGradient)" opacity="0.1" filter="url(#glow)"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="200" cy="200" r="180" fill="none" stroke="url(#avatarGradient)" stroke-width="2" opacity="0.6">
+    <animateTransform attributeName="transform" type="rotate" values="0 200 200;360 200 200" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Inner Ring -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#06b6d4" stroke-width="1" opacity="0.4">
+    <animateTransform attributeName="transform" type="rotate" values="360 200 200;0 200 200" dur="15s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Head -->
+  <ellipse cx="200" cy="180" rx="70" ry="80" fill="url(#faceGradient)"/>
+  
+  <!-- Hair -->
+  <path d="M 130 120 Q 200 100 270 120 Q 280 140 270 160 Q 200 140 130 160 Q 120 140 130 120 Z" fill="#1f2937"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="180" cy="160" rx="8" ry="12" fill="#1f2937"/>
+  <ellipse cx="220" cy="160" rx="8" ry="12" fill="#1f2937"/>
+  
+  <!-- Eye Glow -->
+  <ellipse cx="180" cy="158" rx="3" ry="4" fill="#06b6d4" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="220" cy="158" rx="3" ry="4" fill="#06b6d4" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- Nose -->
+  <ellipse cx="200" cy="175" rx="3" ry="6" fill="#e78806"/>
+  
+  <!-- Mouth -->
+  <path d="M 185 190 Q 200 200 215 190" stroke="#1f2937" stroke-width="2" fill="none"/>
+  
+  <!-- Body/Torso -->
+  <rect x="170" y="250" width="60" height="100" fill="url(#avatarGradient)" rx="10"/>
+  
+  <!-- Cyberpunk Collar -->
+  <rect x="165" y="245" width="70" height="15" fill="#1f2937" rx="5"/>
+  <rect x="170" y="250" width="60" height="5" fill="#06b6d4" opacity="0.8"/>
+  
+  <!-- Tech Details -->
+  <circle cx="160" cy="270" r="4" fill="#06b6d4" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="240" cy="270" r="4" fill="#8b5cf6" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Digital Grid Lines -->
+  <g opacity="0.3">
+    <line x1="50" y1="100" x2="350" y2="100" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="50" y1="150" x2="350" y2="150" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="50" y1="200" x2="350" y2="200" stroke="#06b6d4" stroke-width="0.5"/>
+    <line x1="50" y1="250" x2="350" y2="250" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="50" y1="300" x2="350" y2="300" stroke="#3b82f6" stroke-width="0.5"/>
+    
+    <line x1="100" y1="50" x2="100" y2="350" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="150" y1="50" x2="150" y2="350" stroke="#3b82f6" stroke-width="0.5"/>
+    <line x1="200" y1="50" x2="200" y2="350" stroke="#06b6d4" stroke-width="0.5"/>
+    <line x1="250" y1="50" x2="250" y2="350" stroke="#8b5cf6" stroke-width="0.5"/>
+    <line x1="300" y1="50" x2="300" y2="350" stroke="#3b82f6" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Floating Data Particles -->
+  <g opacity="0.7">
+    <text x="100" y="80" font-family="monospace" font-size="8" fill="#8b5cf6">01001</text>
+    <text x="320" y="120" font-family="monospace" font-size="8" fill="#06b6d4">11010</text>
+    <text x="80" y="320" font-family="monospace" font-size="8" fill="#3b82f6">10110</text>
+    <text x="300" y="350" font-family="monospace" font-size="8" fill="#8b5cf6">00101</text>
+  </g>
+  
+  <!-- Holographic Effect -->
+  <rect x="0" y="0" width="400" height="400" fill="none" stroke="url(#avatarGradient)" stroke-width="1" opacity="0.2" rx="20"/>
+</svg>

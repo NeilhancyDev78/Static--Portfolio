@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neilhancy Dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-void text-neon overflow-x-hidden">
+    <!-- Cursor Trail effect's canvas -->
+    <canvas id="cyberTrail" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:999;"></canvas>
+    
+    <!-- Background effects -->
+    <div id="digitalRain" class="fixed inset-0 z-0 pointer-events-none"></div>
+    <div id="hologrid" class="fixed inset-0 z-0 pointer-events-none"></div>
+    
+    <!-- Floating Bubbles in the Background -->
+    <div class="energy-sphere" style="top: 20%; left: 10%;"></div>
+    <div class="energy-sphere" style="top: 60%; right: 15%;"></div>
+    <div class="energy-sphere" style="top: 80%; left: 70%;"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 cyber-glass border-b border-cyberpunk/30">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-cyberpunk glitch-text" data-text="Dev's Chronicle">
+                    Dev's Chronicle
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">HOME</a>
+                    <a href="#bio" class="nav-link">ABOUT</a>
+                    <a href="#expertise" class="nav-link">SKILLS</a>
+                    <a href="#work" class="nav-link">PROJECTS</a>
+                    <a href="#timeline" class="nav-link">JOURNEY</a>
+                    <a href="#milestones" class="nav-link">ACHIEVEMENTS</a>
+                    <a href="#connect" class="nav-link">CONTACT</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menuToggle" class="text-cyberpunk hover:text-cyberpunk-light transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileNav" class="hidden md:hidden cyber-glass border-t border-cyberpunk/30">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block nav-link">HOME</a>
+                <a href="#bio" class="block nav-link">ABOUT</a>
+                <a href="#expertise" class="block nav-link">SKILLS</a>
+                <a href="#work" class="block nav-link">PROJECTS</a>
+                <a href="#timeline" class="block nav-link py-2">JOURNEY</a>
+                <a href="#milestones" class="block nav-link">ACHIEVEMENTS</a>
+                <a href="#connect" class="block nav-link">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- So Called Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-6 pt-20">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
+                <div class="mb-6">
+                    <h1 class="text-5xl lg:text-7xl font-bold mb-4 glitch-text cyber-glow" data-text="Hi! I'm Neilhancy Dev">
+                        Hi! I'm Neilhancy Dev
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-neon-dim mb-8 terminal-text">
+                        <span id="typewriter">Crafting codes, bringing ideas to life - One project at a time.</span>
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+                    <button class="cyber-button primary" onclick="scrollToSection('work')">
+                        <span>View Projects</span>
+                        <i class="fas fa-code ml-2"></i>
+                    </button>
+                    <button class="cyber-button secondary" onclick="scrollToSection('connect')">
+                        <span>Contact Me</span>
+                        <i class="fas fa-terminal ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-80 h-80 cyber-avatar-container">
+                        <img src="assets/images/avatar.svg" alt="Developer Avatar" class="w-full h-full object-cover rounded-full cyber-avatar">
+                        <div class="absolute inset-0 rounded-full cyber-ring"></div>
+                        <div class="absolute inset-0 rounded-full cyber-ring-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-cyberpunk-dim"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="bio" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16 glitch-text" data-text="PROFILE">
+                PROFILE
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="cyber-card p-8 lg:p-12">
+                    <div class="flex flex-col lg:flex-row items-center gap-12">
+                        <div class="lg:w-1/3">
+                            <div class="w-48 h-48 mx-auto cyber-frame">
+                                <img src="assets/images/avatar.svg" alt="Profile" class="w-full h-full object-cover rounded-lg">
+                            </div>
+                        </div>
+                        <div class="lg:w-2/3">
+                            <div class="terminal-window">
+                                <div class="terminal-header">
+                                    <div class="terminal-controls">
+                                        <span class="terminal-btn close"></span>
+                                        <span class="terminal-btn minimize"></span>
+                                        <span class="terminal-btn maximize"></span>
+                                    </div>
+                                    <span class="terminal-title">developer_profile.txt</span>
+                                </div>
+                                <div class="terminal-content">
+                                    <p class="mb-4">
+                                        <span class="text-cyberpunk">></span> <span class="terminal-prompt">Introduction</span>
+                                    </p>
+                                    <p class="mb-6 text-neon-dim leading-relaxed">
+                                       “Hi, I’m Neilhancy Dev — a passionate programmer and problem solver driven by curiosity and creativity.
+                                        I love turning ideas into reality through code, whether it’s crafting elegant web experiences, developing
+                                         AI-powered prototypes, or experimenting with cutting-edge technologies. My journey is fueled by a constant
+                                        thirst for knowledge and innovation — exploring, building, and pushing boundaries to create solutions that make an impact.”
+                                    </p>
+                                    <p class="text-cyberpunk">
+                                        <span class="blinking-cursor">█</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+        <section id="expertise" class="relative py-16">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-orbitron font-bold text-center mb-12 cyber-glow glitch-text" data-text="SKILLS">SKILLS</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Languages -->
+            <div class="cyber-card p-6">
+                <h3 class="text-2xl font-orbitron font-semibold mb-6 text-center">Languages</h3>
+                <div class="space-y-6">
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-python-plain colored"></i>
+                                <span >Python</span>
+                            </div>
+                            <span>89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="89"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-javascript-plain colored"></i>
+                                <span >JavaScript</span>
+                            </div>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-php-plain colored"></i>
+                                <span >PHP</span>
+                            </div>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="50"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-c-plain colored"></i>
+                                <span>C</span>
+                            </div>
+                            <span>78%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="78"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools -->
+            <div class="cyber-card p-6">
+                <h3 class="text-2xl font-orbitron font-semibold mb-6 text-center">Tools</h3>
+                <div class="space-y-6">
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-opencv-plain colored"></i>
+                                <span >OpenCV</span>
+                            </div>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-tailwindcss-plain colored"></i>
+                                <span >Tailwind CSS</span>
+                            </div>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-tensorflow-original colored"></i>
+                                <span >TensorFlow</span>
+                            </div>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="devicon-git-plain colored"></i>
+                                <span >Git</span>
+                            </div>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Soft Skills -->
+            <div class="cyber-card p-6">
+                <h3 class="text-2xl font-orbitron font-semibold mb-6 text-center">Soft Skills</h3>
+                <div class="space-y-6">
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-puzzle-piece"></i>
+                                <span >Problem Solving</span>
+                            </div>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-users"></i>
+                                <span>Team Collaboration</span>
+                            </div>
+                            <span>99%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="99"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-lightbulb"></i>
+                                <span >Innovation</span>
+                            </div>
+                            <span>99%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="99"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-tools"></i>
+                                <span >Troubleshooting</span>
+                            </div>
+                            <span>96%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="96"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="work" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16 glitch-text" data-text="UPLOADED PROJECTS">
+                UPLOADED PROJECTS
+            </h2>
+
+            <div class="projects-grid">
+                <!-- First project card -->
+                <a href="https://github.com/NeilhancyDev78/DevVisionFLow-Protoype-1">
+
+                    <div class="cyber-project-card cyber-card group" data-project="devvisionflow 1">
+                        <div class="project-wrapper">
+                            <div class="project-media">
+                                <!-- Default Image -->
+                                <img src="/assets/images/DevVisionFlow.png" alt="VisionFlow Preview" class="project-img" />
+
+                                <!-- GIF Preview (Initially Hidden) -->
+                                <img src="/assets/GIFs/DevVisionFlow.gif" alt="VisionFlow GIF Preview" class="project-gif hidden" />
+
+                                <!-- Overlay -->
+                                <div class="project-overlay">
+                                    <i class="fas fa-code text-4xl text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-details p-6">
+                            <h3 class="text-2xl font-bold mb-3 text-cyberpunk">DevVisionFlow (1st Prototype) </h3>
+                            <p class="project-tag text-neon-dim mb-4">Revolutionary development workflow automation</p>
+
+                            <!-- Hidden Description (Shown on Hover) -->
+                            <div class="project-desc hidden">
+                                <p class="text-neon-dim leading-relaxed">
+                                    DevVisionFlow is one of my ideas that came out of nowhere and hence created it to be possible in real life when i was 15.
+                                    It simply uses gestures to control your computer, it was just a raw idea.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="tech-tag">Live Processing</span>
+                                    <span class="tech-tag">ML</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                            </div>
+                    </div>
+
+                </a>
+                
+                    </div>
+
+
+                <!-- Second project card -->
+                <div class="cyber-project-card cyber-card group" data-project="devvisionflow-2">
+                    <a href="https://github.com/NeilhancyDev78/DevVisionFlow-Prototype-2">
+
+                            <div class="project-wrapper">
+                                <div class="project-media">
+                                    <!-- Default Image -->
+                                    <img src="/assets/images/DevVisionFlow.png" alt="VisionFlow Pro Preview" class="project-img" />
+
+                                    <!-- GIF Preview (Initially Hidden) -->
+                                    <img src="/assets/GIFs/VisionFlow Pro.gif" alt="VisionFlow Pro GIF Preview" class="project-gif hidden" />
+
+                                    <!-- Overlay -->
+                                    <div class="project-overlay">
+                                        <i class="fas fa-code text-4xl text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-details p-6">
+                                <h3 class="text-2xl font-bold mb-3 text-cyberpunk">DevVisionFlow (2nd Prototype)</h3>
+                                <p class="project-tag text-neon-dim mb-4">Advanced development automation suite</p>
+
+                                <!-- Hidden Description (Shown on Hover) -->
+                                <div class="project-desc hidden">
+                                    <p class="text-neon-dim leading-relaxed">
+                                        This is the enhanced version of DevVisionFlow which is still in development and is aimed for better and smoother in perrformance.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mt-4">
+                                        <span class="tech-tag">OpenCV</span>
+                                        <span class="tech-tag">Comp. Vision</span>
+                                        <span class="tech-tag">NumPy</span>
+                                    </div>
+                                </div>
+                        </div>
+
+                    </a>
+                </div>
+
+    </section>
+
+
+
+    <!--Journey Section-->
+
+    <section id="timeline">
+            <ul>
+                <li>
+                <div>
+                    <time>2025, July</time>
+                    <div class="time-card">
+                    <p>
+                    Pursuing Higher Secondary Education in the +2 Science stream.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, July</time>
+                    <div class="time-card">
+                    <p>
+                        Started working on maintaining DevVisionFlow-Prototype-2 and developing Static Version of this Website.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, June</time>
+                    <div class="time-card">
+                    <p>
+                        Started creating Static Web version of this "Dev's Chronicle" Personal Website for myself.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, May</time>
+                    <div class="time-card">
+                    <p>
+                        Working on a smooth and lightweight version of DevVisionFLow aimed for its 2nd Prototype.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, May</time>
+                    <div class="time-card">
+                    <p>
+                        Enhanced performances of DevVisionFlow and added it on Github as my First repository named "DevVisionFLow-Protoype-1" which is still on the developing stage.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, April</time>
+                    <div class="time-card">
+                    <p>
+                        Struggling through many problems regarding the logic of an organic idea, finally created early version of "DevVisionFlow"
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, April</time>
+                    <div class="time-card">
+                    <p>
+                        A Computer vision project idea blasted into my brain and started working on it.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, March</time>
+                    <div class="time-card">
+                    <p>
+                        Started relearning Web Development. 
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2025, March</time>
+                    <div class="time-card">
+                    <p>
+                        Completed Lower Secondary School or SEE (Grade 10).
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2024, November</time>
+                    <div class="time-card">
+                    <p>
+                        Started learning C from school curriculum and slightly covered all the basics.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2024, March</time>
+                    <div class="time-card">
+                    <p>
+                        Started learning python libraries like TensorFlow, OpenCV, NumPY and some basics of Scikit-learn.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2023, December</time>
+                    <div class="time-card">
+                    <p>
+                        Started basics of python. 
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2023, October</time>
+                    <div class="time-card">
+                    <p>
+                        Developed interest in AI and Ml and started researching about it in free time.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2023, October</time>
+                    <div class="time-card">
+                    <p>
+                        Learnt Modular Programming in QBASIC and created a small applet with the help of QBASIC.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2022, December</time>
+                    <div class="time-card">
+                    <p>
+                        Created a fully functioning Affiliate Marketing Website based on Frontend Development at 13 (Named it De&#10003;deals).
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2022, October</time>
+                    <div class="time-card">
+                    <p>
+                        Started learning Frontend Web Development and some bits of Backend Web Development too in matter of interest.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2022</time>
+                    <div class=" time-card">
+                    <p>
+                        Covered some basics and essentials of HTML from school's curriculum.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2022</time>
+                    <div class="time-card">
+                    <p>
+                        Developed interest in programming, creating something of own as a fantasy and maintaing code. (Tried to learn Java from W3Schools).
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2021</time>
+                    <div class="time-card">
+                    <p>
+                        Started learning structured programming language, QBASIC.
+                    </p>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <time>2019</time>
+                    <div class="time-card">
+                    <p>
+                        Just discovered what actually Code was and was fascinated by Hacking incidents.
+                    </p>
+                </div>
+                </li>
+            </ul>
+    </section>
+
+
+    <!-- Achievements Section -->
+    <section id="milestones" class="py-20 px-6 bg-gradient-to-br from-void-dark to-void">
+        <div class="container mx-auto">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16 glitch-text" data-text="SOME ACHIEVEMENTS">
+                SOME ACHIEVEMENTS
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="milestone-card cyber-card p-8 text-center">
+                    <div class="milestone-icon mb-6">
+                        <i class="fas fa-trophy text-4xl text-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyberpunk">Young Innovator/Enthusiast</h3>
+                    <p class="text-neon-dim">Developed DevVisionFlow from a random idea at 15 — a gesture-control system using ML and computer vision</p>
+                </div>
+                
+                <div class="milestone-card cyber-card p-8 text-center">
+                    <div class="milestone-icon mb-6">
+                        <i class="fas fa-star text-4xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyberpunk">Open-Source Contributor</h3>
+                    <p class="text-neon-dim">Actively sharing projects and ideas and their prototypes on GitHub to help the developer community grow.</p>
+                </div>
+
+                <div class="milestone-card cyber-card p-8 text-center">
+                    <div class="milestone-icon mb-6">
+                        <i class="fas fa-users text-4xl text-cyan-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyberpunk">Mentoring</h3>
+                    <p class="text-neon-dim">Helped multiple colleagues and juniors learn coding and problem-solving skills.</p>
+                </div>
+                
+                <div class="milestone-card cyber-card p-8 text-center">
+                    <div class="milestone-icon mb-6">
+                        <i class="fas fa-rocket text-4xl text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyberpunk">Projects</h3>
+                    <p class="text-neon-dim">Unoficially + Officially built and uploaded multiple personal projects showcasing real-world tech solutions.</p>
+                </div>
+                
+                <div class="milestone-card cyber-card p-8 text-center">
+                    <div class="milestone-icon mb-6">
+                        <i class="fas fa-code text-4xl text-green-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyberpunk">Clean Code Advocate</h3>
+                    <p class="text-neon-dim">Focused on writing maintainable, scalable, and optimized code for every project.</p>
+                </div>
+                
+                <div class="milestone-card cyber-card p-8 text-center">
+                    <div class="milestone-icon mb-6">
+                        <i class="fas fa-medal text-4xl text-cyberpunk"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-cyberpunk">Mastered Speedcubing</h3>
+                    <p class="text-neon-dim">Achieved 20 seconds avg (Personal best) in 3x3 and mastered multiple cube types, blending logic and speed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="connect" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl lg:text-5xl font-bold text-center mb-16 glitch-text" data-text="WANNA CONNECT WITH ME ?">
+                WANNA CONNECT WITH ME ?
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="cyber-card p-8">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="terminal-controls">
+                                    <span class="terminal-btn close"></span>
+                                    <span class="terminal-btn minimize"></span>
+                                    <span class="terminal-btn maximize"></span>
+                                </div>
+                                <span class="terminal-title">contact_form.exe</span>
+                            </div>
+                            <form class="terminal-content space-y-6">
+                                <div>
+                                    <label class="block text-cyberpunk mb-2">
+                                        <span class="terminal-prompt">name@input:</span>
+                                    </label>
+                                    <input type="text" class="cyber-input w-full" placeholder="Enter your name">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-cyberpunk mb-2">
+                                        <span class="terminal-prompt">email@input:</span>
+                                    </label>
+                                    <input type="email" class="cyber-input w-full" placeholder="Enter your email">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-cyberpunk mb-2">
+                                        <span class="terminal-prompt">message@input:</span>
+                                    </label>
+                                    <textarea class="cyber-input w-full h-32" placeholder="Enter your message"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="cyber-button primary w-full">
+                                    <span>Execute Send</span>
+                                    <i class="fas fa-paper-plane ml-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div class="cyber-card p-8">
+                            <h3 class="text-2xl font-bold mb-6 text-cyberpunk">Connect With Me</h3>
+                            <div class="space-y-4">
+                                <a href="#" class="social-link flex items-center p-4 rounded-lg transition-all duration-300">
+                                    <i class="fab fa-github text-3xl mr-4 text-gray-800"></i>
+                                    <div>
+                                        <div class="font-semibold">GitHub</div>
+                                        <div class="text-neon-dim text-sm">Code Repository</div>
+                                    </div>
+                                </a>
+                                
+                                <a href="#" class="social-link flex items-center p-4 rounded-lg transition-all duration-300">
+                                    <i class="fas fa-envelope text-3xl mr-4 text-red-500"></i>
+                                    <div>
+                                        <div class="font-semibold">Email</div>
+                                        <div class="text-neon-dim text-sm">Direct Contact With The Form Beside</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="cyber-card p-8 text-center">
+                            <div class="text-4xl mb-4">🚀</div>
+                            <h3 class="text-xl font-bold mb-2 text-cyberpunk">Ready to Collaborate?</h3>
+                            <p class="text-neon-dim">Let's build something amazing together!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cyber-glass text-neon py-12 px-6">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="text-2xl font-bold text-cyberpunk glitch-text" data-text="Neilhancy Dev">
+                    Neilhancy Dev
+                </div>
+                <p class="text-neon-dim mt-2">Crafting the ideas, one line at a time.</p>
+            </div>
+            
+            <div class="flex space-x-4">
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-2xl text-neon-dim hover:text-cyberpunk transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="border-t border-void-dark mt-8 pt-8 text-center text-neon-dim">
+            <p>&copy; 2024 Neilhancy Dev. All rights reserved. </p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Back to Top Button -->
+    <button id="topButton" class="fixed bottom-8 right-8 w-12 h-12 bg-cyberpunk text-white rounded-full shadow-lg opacity-0 transition-all duration-300 hover:bg-cyberpunk-light cyber-glow z-50">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
